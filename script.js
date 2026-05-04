@@ -26,3 +26,29 @@ document.getElementById("addBtn").addEventListener("click", function () {
     document.getElementById("credits").value = "";
     document.getElementById("grade").value = "";
 });
+
+document.getElementById("addClassBtn").addEventListener("click", function () {
+
+    let day = document.getElementById("day").value;
+    let subject = document.getElementById("subject").value;
+    let time = document.getElementById("time").value;
+
+    if (!day || !subject || !time) {
+        alert("Please fill all timetable fields");
+        return;
+    }
+
+    let row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td>${day}</td>
+        <td>${subject}</td>
+        <td>${time}</td>
+    `;
+
+    document.getElementById("timetableBody").appendChild(row);
+
+    document.getElementById("day").value = "";
+    document.getElementById("subject").value = "";
+    document.getElementById("time").value = "";
+});
